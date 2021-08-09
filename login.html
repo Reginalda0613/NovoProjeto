@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/7c890cd723.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  
+    <!----------------Login------------------>
+
+    <div class="container">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <h2>LOGIN</h2>
+                    <form action="index.html" method="POST">
+                        <input name="email" type="email" class="input-box" 
+                        placeholder="Digite seu email" required>
+                        <input name="senha" type="senha" class="input-box"
+                        placeholder="senha" required>
+                        <? if(isset($_GET['login']) && $_GET ['login'] == 'erro'){  ?>
+
+                        <div class="text-danger">
+                        Usuário ou senha inválido(s)
+                        </div>
+
+                        <?} ?>
+
+                          <? if(isset($_GET['login']) && $_GET['login'] == 'erro2'){ ?>
+
+                           <div class="tex-danger">
+                             Faça login para acessar as páginas
+                          </div>
+                         <? } ?>
+
+                        <button type="submit" class="enviar-btn">Enviar</button>
+                        <input type="checkbox"><span>Lembre-me</span>
+                    </form>  
+                    <button type="button" class="btn" onclick="openCadastrese()">Não tem Cadastro</button>
+                    <a href="#">Esqueceu a Senha</a>  
+                </div>
+                <div class="card-back">
+                    <h2>CADASTRE-SE</h2>
+                    <form action="index.html" method="POST" >
+                        <input name="nome" type="text" class="input-box" placeholder="Seu Nome" required>
+                        <input name="email" type="email" class="input-box" 
+                        placeholder="Digite seu email" required>
+                        <input name="senha" type="senha" class="input-box"
+                        placeholder="senha" required>
+                        
+
+
+                        <button type="submit" class="enviar-btn">Enviar</button>
+                        <input type="checkbox"><span>Lembre-me</span>
+                    </form>  
+                    <button type="button" class="btn" onclick="openLogin()">Eu tenho uma Conta</button>
+                    <a href="#">Esqueceu a Senha</a>  
+                </div>
+            </div>   
+        </div>
+    </div>
+    <script>
+        var car =document.getElementById("card");
+        function openCadastrese(){
+            card.style.transform = "rotateY(-180deg)"
+        }
+        function openLogin(){
+            card.style.transform = "rotateY(0deg)"
+        }
+    </script> 
+</body>
+</html>
